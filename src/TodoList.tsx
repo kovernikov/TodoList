@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {FilterValueType, TaskType} from './App';
 
 type PropsTodoListType = {
     title: string
     tasks: Array<TaskType>
-    removeTask: (taskID: number) => void
+    removeTask: (taskID: string) => void
+    addTask: (title: string) => void
     changeTodoListFilter: (filterValue: FilterValueType) => void
 }
 
 function TodoList(props: PropsTodoListType) {
+    const [title, setTitle] = useState<string>('')
+    const onClickAddTask = () => {
+        props.addTask(title)
+        setTitle('')
+    }
     const tasksJSXElement = props.tasks.map(t => {
         const removeTask = () => props.removeTask(t.id)
         return (
@@ -19,21 +25,35 @@ function TodoList(props: PropsTodoListType) {
 
         )
     })
+    const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
+    const onKeyPressAddTask = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            onClickAddTask()
+        }
+    }
+    const onClickSetAllFilter = () => props.changeTodoListFilter( "all")
+    const onClickSetActiveFilter = () => props.changeTodoListFilter("active")
+    const onClickSetCompletedFilter = () => props.changeTodoListFilter("completed")
+
     return (
         <div>
             <h3>{props.title}</h3>
             <div>
-                <input/>
-                <button>+</button>
+                <input
+                    value={title}
+                    onChange={onChangeTitle}
+                    onKeyPress={onKeyPressAddTask}
+                />
+                <button onClick={onClickAddTask}>+</button>
             </div>
             <ul>
                 {tasksJSXElement}
             </ul>
 
             <div>
-                <button onClick={() => props.changeTodoListFilter('all')}>All</button>
-                <button onClick={() => props.changeTodoListFilter('active')}>Active</button>
-                <button onClick={() => props.changeTodoListFilter('completed')}>Completed</button>
+                <button onClick={onClickSetAllFilter}>All</button>
+                <button onClick={onClickSetActiveFilter}>Active</button>
+                <button onClick={onClickSetCompletedFilter}>Completed</button>
             </div>
         </div>
     )
