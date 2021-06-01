@@ -22,7 +22,8 @@ function AddItemForm(props: AddItemFormPropsType) {
     }
 
     return (
-        <div>
+        <div className='inputpoot'>
+            <h3> Add new TodoList</h3>
             <input
                 value={title}
                 onChange={onChangeTitle}

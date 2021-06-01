@@ -1,25 +1,28 @@
-.App {
-  padding: 30px;
-  display: flex;
-}
 
-.App > div {
-  margin-right: 50px;
+.App {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .error {
-  border: red 1px solid;
+    border: red 1px solid;
 }
 
 .error-message {
-  outline: none;
-  color: red;
+    outline: none;
+    color: red;
 }
 
 .active-filtr {
-  background-color: aquamarine;
+    background-color: aquamarine;
+}
+span {
+    padding: 10px;
+
 }
 
 .is-done {
-  opacity: 0.5;
+    opacity: 0.5;
 }

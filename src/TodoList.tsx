@@ -12,8 +12,8 @@ type PropsTodoListType = {
     removeTask: (taskID: string, todoListID: string) => void
     removeTodoList: (todoListID: string) => void
     changeTodoListFilter: (filterValue: FilterValueType, todoListID: string) => void
-    changeTaskStatus: (taskId: string, isDone: boolean, todoListID: string) => void
     changeTodoListTitle: (title: string, todoListID: string) => void
+    changeTaskStatus: (taskId: string, isDone: boolean, todoListID: string) => void
     changeTaskTitle: (taskID: string, title: string, todoListID: string) => void
 }
 
@@ -45,12 +45,12 @@ function TodoList(props: PropsTodoListType) {
 
 
     return (
-        <div>
+        <div className="components">
             <h3>
                 <EditableSpan title={props.title} changeTitle={changeTodoListTitle}/>
                 <button onClick={() => props.removeTodoList(props.todoListID)}>X</button>
             </h3>
-            <AddItemForm addItem={addTask}/>
+            <AddItemForm addItem={addTask} />
 
             <ul>
                 {tasksJSXElement}
