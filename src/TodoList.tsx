@@ -21,13 +21,13 @@ function TodoList(props: PropsTodoListType) {
 
     const tasksJSXElement = props.tasks.map(t => {
         const removeTask = () => props.removeTask(t.id, props.todoListID)
-        const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => props.changeTaskStatus(t.id, e.currentTarget.checked, props.todoListID)
+        const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => props.changeTaskStatus(t.id, e.currentTarget.checked, props.todoListID)
         const changeTaskTitle = (title: string) => props.changeTaskTitle(t.id, title, props.todoListID)
         return (
             <li key={t.id} className={t.isDone ? 'is-done' : ''}>
                 <input
                     type="checkbox"
-                    onChange={onChangeHandler}
+                    onChange={changeTaskStatus}
                     checked={t.isDone}/>
                 <EditableSpan title={t.title} changeTitle={changeTaskTitle}/>
                 {/*<span>{t.title}</span>*/}
@@ -50,7 +50,7 @@ function TodoList(props: PropsTodoListType) {
                 <EditableSpan title={props.title} changeTitle={changeTodoListTitle}/>
                 <button onClick={() => props.removeTodoList(props.todoListID)}>X</button>
             </h3>
-            <AddItemForm addItem={addTask} />
+            <AddItemForm addItem={addTask}/>
 
             <ul>
                 {tasksJSXElement}

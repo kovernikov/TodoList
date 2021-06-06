@@ -1,9 +1,18 @@
-
 .App {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 0 auto;
+}
+
+.addItem {
+    margin: 63px 40px 0 20px;
+}
+
+.todolist {
+    margin: 0 auto;
 }
 
 .error {

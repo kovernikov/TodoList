@@ -22,7 +22,7 @@ function AddItemForm(props: AddItemFormPropsType) {
     }
 
     return (
-        <div className='inputpoot'>
+        <div className="inputpoot">
             <h3> Add new TodoList</h3>
             <input
                 value={title}
