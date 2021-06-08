@@ -150,22 +150,22 @@ function App() {
     })
     return (
         <div className="App">
-            <AppBar position={"static"}>
-                <Toolbar style={{justifyContent: "space-between"}}>
-                    <IconButton color={"inherit"}>
+            <AppBar position={'static'}>
+                <Toolbar style={{justifyContent: 'space-between'}}>
+                    <IconButton color={'inherit'}>
                         <Menu/>
                     </IconButton>
-                    <Typography variant={"h6"}>
+                    <Typography variant={'h6'}>
                         Todolists
                     </Typography>
                     <Button
-                        color={"inherit"}
-                        variant={"outlined"}
+                        color={'inherit'}
+                        variant={'outlined'}
                     >Login</Button>
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding: "20px 0px"}}>
+                <Grid container style={{padding: '20px 10px'}}>
                     <AddItemForm addItem={addTodoList}/>
                 </Grid>
                 <Grid container spacing={5}>

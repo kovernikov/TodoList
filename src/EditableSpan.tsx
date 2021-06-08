@@ -1,7 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {FilterValueType, TaskType} from './App';
-import AddItemForm from './AddItemForm';
-import { TextField } from '@material-ui/core';
+import {TextField} from '@material-ui/core';
 
 type EditableSpanPropsType = {
     title: string
@@ -18,8 +16,8 @@ function EditableSpan(props: EditableSpanPropsType) {
     }
 
     const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
-    const onEnterOffEditMode = (e:KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
+    const onEnterOffEditMode = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
             offEditMode()
         }
     }

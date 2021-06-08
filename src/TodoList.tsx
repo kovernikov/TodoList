@@ -1,9 +1,9 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import {FilterValueType, TaskType} from './App';
 import AddItemForm from './AddItemForm';
 import EditableSpan from './EditableSpan';
-import {Button, Checkbox, IconButton} from "@material-ui/core";
-import {Delete} from '@material-ui/icons';
+import {Button, Checkbox, IconButton} from '@material-ui/core';
+import {Backspace, Delete} from '@material-ui/icons';
 
 type PropsTodoListType = {
     filter: FilterValueType
@@ -40,7 +40,7 @@ function TodoList(props: PropsTodoListType) {
                     </span>
                     {/*<span>{t.title}</span>*/}
                     <IconButton onClick={removeTask} color={'secondary'}>
-                        <Delete/>
+                        <Backspace/>
                     </IconButton>
                 </li>
 
@@ -65,7 +65,7 @@ function TodoList(props: PropsTodoListType) {
                 {/*<button onClick={() => props.removeTodoList(props.todoListID)}>X</button>*/}
             </h3>
             <AddItemForm addItem={addTask}/>
-            <ul style={{listStyle: "none", padding: "0px"}}>
+            <ul style={{listStyle: 'none', padding: '0px'}}>
                 {tasksJSXElement}
             </ul>
             <div>
@@ -76,7 +76,7 @@ function TodoList(props: PropsTodoListType) {
                     onClick={onClickSetAllFilter}>All
                 </Button>
                 <Button
-                    style={{margin: '3px, 0px'}}
+                    style={{margin: '5px'}}
                     size={'small'}
                     variant={filter === 'active' ? 'contained' : 'outlined'}
                     color={'primary'}
