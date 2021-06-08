@@ -1,37 +1,37 @@
-.App {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-    margin: 0 auto;
-}
+/*.App {*/
+/*    padding: 10px;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*    align-items: stretch;*/
+/*    margin: 0 auto;*/
+/*}*/
 
-.addItem {
-    margin: 63px 40px 0 20px;
-}
+/*.addItem {*/
+/*    margin: 63px 40px 0 20px;*/
+/*}*/
 
-.todolist {
-    margin: 0 auto;
-}
+/*.todolist {*/
+/*    margin: 0 auto;*/
+/*}*/
 
-.error {
-    border: red 1px solid;
-}
+/*.error {*/
+/*    border: red 1px solid;*/
+/*}*/
 
-.error-message {
-    outline: none;
-    color: red;
-}
+/*.error-message {*/
+/*    outline: none;*/
+/*    color: red;*/
+/*}*/
 
-.active-filtr {
-    background-color: aquamarine;
-}
+/*.active-filtr {*/
+/*    background-color: aquamarine;*/
+/*}*/
 
-span {
-    padding: 10px;
+/*span {*/
+/*    padding: 10px;*/
 
-}
+/*}*/
 
 .is-done {
     opacity: 0.5;

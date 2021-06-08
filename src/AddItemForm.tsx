@@ -1,37 +1,63 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {FilterValueType, TaskType} from './App';
+import {IconButton, TextField} from "@material-ui/core";
+import {AddBox} from "@material-ui/icons";
 
-export type AddItemFormPropsType = {
+type AddItemFormPropsType = {
     addItem: (title: string) => void
 }
 
 function AddItemForm(props: AddItemFormPropsType) {
-    let [title, setTitle] = useState<string>('')
-    let [error, setError] = useState<string | null>(null)
+    const [title, setTitle] = useState<string>("")
+    const [error, setError] = useState<boolean>(false)
 
-    const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.currentTarget.value)
-    const onKeyPressAddItemForm = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        setError(null);
-        if (e.key === 'Enter') {
-            addTask()
+    const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+        setError(false)
+    }
+    const onKeyPressAddItem = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            onClickAddItem()
         }
     }
-    const addTask = () => {
-        let changeAddTask = (title.trim() !== '') ? props.addItem(title.trim()) : setError('Title is required');
-        setTitle('')
+    const onClickAddItem = () => {
+        const validatedTitle = title.trim()
+        if(validatedTitle){
+            props.addItem(validatedTitle)
+        } else {
+            setError(true)
+        }
+        setTitle("")
     }
 
-    return (
-        <div className="inputpoot">
-            <h3> Add new TodoList</h3>
-            <input
+    const errorMessage = error
+        ? <div style={{color: "red"}}>Title is required!</div>
+        : null
+
+    return(
+        <div>
+            <TextField
+                variant={"outlined"}
+                size={"small"}
                 value={title}
                 onChange={onChangeTitle}
-                onKeyPress={onKeyPressAddItemForm}
-                className={error ? 'error' : ''}
+                onKeyPress={onKeyPressAddItem}
+
+                label={"Title"}
+                error={error}
+                helperText={error && "Title is required!"}
             />
-            <button onClick={addTask}>+</button>
-            {error && <div className="error-message">{error}</div>}
+            {/*<input*/}
+            {/*    value={title}*/}
+            {/*    onChange={onChangeTitle}*/}
+            {/*    onKeyPress={onKeyPressAddItem}*/}
+            {/*    className={error ? "error" : ""}*/}
+            {/*/>*/}
+            <IconButton onClick={onClickAddItem} color={"primary"}>
+                <AddBox/>
+            </IconButton>
+
+            {/*{errorMessage}*/}
+            {/*{error && <div style={{color: "red"}}>Title is required!</div>}*/}
         </div>
     )
 }

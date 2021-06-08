@@ -1,6 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {FilterValueType, TaskType} from './App';
 import AddItemForm from './AddItemForm';
+import { TextField } from '@material-ui/core';
 
 type EditableSpanPropsType = {
     title: string
@@ -8,7 +9,7 @@ type EditableSpanPropsType = {
 }
 
 function EditableSpan(props: EditableSpanPropsType) {
-    let [title, setTitle] = useState<string>(props.title)
+    const [title, setTitle] = useState<string>(props.title)
     const [editMode, setEditMode] = useState<boolean>(false)
     const onEditMode = () => setEditMode(true)
     const offEditMode = () => {
@@ -25,7 +26,7 @@ function EditableSpan(props: EditableSpanPropsType) {
 
     return (
         editMode
-            ? <input
+            ? <TextField
                 value={title}
                 autoFocus  /*или autoFocus={true}*/
                 onBlur={offEditMode}
