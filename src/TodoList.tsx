@@ -28,7 +28,7 @@ function TodoList(props: PropsTodoListType) {
             const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => props.changeTaskStatus(t.id, e.currentTarget.checked, props.todoListID)
             const changeTaskTitle = (title: string) => props.changeTaskTitle(t.id, title, props.todoListID)
             return (
-                <li key={t.id}>
+                <div key={t.id}>
                     <span className={t.isDone ? 'is-done' : ''}>
                         <Checkbox
                             size={'small'}
@@ -42,7 +42,7 @@ function TodoList(props: PropsTodoListType) {
                     <IconButton onClick={removeTask} color={'secondary'}>
                         <Backspace/>
                     </IconButton>
-                </li>
+                </div>
 
             )
         }
@@ -65,9 +65,9 @@ function TodoList(props: PropsTodoListType) {
                 {/*<button onClick={() => props.removeTodoList(props.todoListID)}>X</button>*/}
             </h3>
             <AddItemForm addItem={addTask}/>
-            <ul style={{listStyle: 'none', padding: '0px'}}>
+            <div style={{listStyle: 'none', padding: '0px'}}>
                 {tasksJSXElement}
-            </ul>
+            </div>
             <div>
                 <Button
                     size={'small'}
